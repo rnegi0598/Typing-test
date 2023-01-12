@@ -1,0 +1,121 @@
+/* 
+light blue #00adad
+blue #0000ad
+red #ad0000 
+green #00ac00
+gray #adadad
+*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: #00adad; */
+    background-color: black;
+    color: #adadad;
+    
+    font-family: 'Ubuntu Mono', monospace;
+}
+header{
+    margin: 20px 0 40px 0;
+    font-size: 2.3rem;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    
+}
+
+.notification{
+    margin: 25px;
+    text-align: center;
+    letter-spacing: 3px; 
+    /* color: black; */
+    color: #adadad;;
+    font-weight: 800;
+    font-size: 1.5rem;
+
+}
+.main-app{
+    background-color: #adadad;
+    color: #adadad;
+    width: 800px;
+    min-height: 400px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    border:5px solid #adadad;
+    
+}
+.typing-div{
+    background-color: #0000ad;
+    width: 70%;
+    border:5px solid black;
+    padding: 10px;
+    ;
+    
+
+}
+.para-text{
+    font-size: 1.3rem;
+    word-break:break-all;
+}
+
+.result-div{
+    
+    color: black;
+    width: 30%;
+    padding: 10px;
+    border:5px solid black;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+.result-div div{
+    background-color: black;
+    color:#adadad;
+    border: 2px solid #adadad;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.reset-div{
+    margin-top: 30px;
+    text-align: center;
+}
+.reset-div button{
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid gray;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.input-field{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 1.2px;
+    outline: none;
+    /* click option edit disable */
+    pointer-events: none;  
+}
+
+.blur{
+    opacity: 0.5;
+}
+
+.correct{
+    color:black;
+}
+.incorrect{
+    color:red;
+    text-decoration: underline;
+}
+
+.active{
+    background-color: #00adad;
+}
