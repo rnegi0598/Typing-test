@@ -6,6 +6,7 @@ green #00ac00
 gray #adadad
 */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -20,13 +21,14 @@ body{
     font-family: 'Ubuntu Mono', monospace;
 }
 header{
-    margin: 20px 0 40px 0;
+    margin: 20px 0 20px 0;
     font-size: 2.3rem;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     
 }
+
 .test-control{
     font-size: 1.2rem;
     text-align: center;
@@ -35,24 +37,39 @@ header{
     margin-top: 15px;
     margin-bottom: 20px;
 }
+.change-para-div{
+    /* border:1px solid white; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 .duration span,.change-para{
     padding: 5px;
     font-weight: 900;
-    border: 1px solid white;
+    border: 1px solid black;
     background-color: #adadad;
     color:black ;
 
 }
 .duration span:hover,.change-para:hover{
     cursor: pointer;
-    /* border-color: black; */
 }
 .duration span:active,.change-para:active,.reset-div button:active{
-    background-color: #00ac00;
+    /* background-color: #00ac00; */
+}
+.change-para:active + .loading{
+    display: inline-block;
 }
 
+.loading{
+    width: 40px;
+    height: 40px;
+    display: none;
+ }
 .notification{
-    margin: 25px;
+    margin: 20px;
     text-align: center;
     letter-spacing: 3px; 
     color: #ad0000;
@@ -78,9 +95,7 @@ header{
     width: 70%;
     border:5px solid black;
     padding: 10px;
-    ;
     
-
 }
 .para-text{
     font-size: 1.3rem;
@@ -88,7 +103,6 @@ header{
 }
 
 .result-div{
-    
     color: black;
     width: 30%;
     padding: 10px;
@@ -142,4 +156,8 @@ header{
 
 .active{
     background-color: #00adad;
+}
+
+.hide{
+    display: none;
 }

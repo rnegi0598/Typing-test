@@ -18,23 +18,30 @@ let correct=0;
 let totalKeysPressed=0;
 let accuracy=0;
 let test=false;  //tell if test is going or not
+inputEl.value='';
 // update maxDuration 
 document.querySelector('.thirty-sec').onclick=function(){
-    console.log('30 clicked');
     maxDuration=30;
     timeEl.innerHTML='30';
+    document.querySelector('.sixty-sec').classList.remove('blur');
+    document.querySelector('.thirty-sec').classList.add('blur');
+    
+
 }
 document.querySelector('.sixty-sec').onclick=()=>{
-    console.log('60 clicked');
     maxDuration=60;
     timeEl.innerHTML='60';
+    document.querySelector('.thirty-sec').classList.remove('blur');
+    document.querySelector('.sixty-sec').classList.add('blur');
 }
+
 //set paragraph
 function setPara(){
     let ind=Math.floor(Math.random()*paragraph.length);
     paraText=paragraph[ind];
 }
 setPara();
+resetText()
 // change paragraph
 document.querySelector('.change-para').onclick=()=>{
     if(!test){
@@ -63,12 +70,15 @@ function resetTimer(){
             resetBtnEl.innerHTML='Try Again';
             resetBtnEl.disabled=false;
             notification.innerHTML='Click on Try Again button to begin the test again.'
+            setPara();
             test=false;
             return ;
         }
+        
         timeEl.innerHTML=`${currentTime}`;
         currentTime--;
         //update wpm
+        // Total Number of Words = Total Keys Pressed / 5
         min=(maxDuration-currentTime)/60;
         words=totalKeysPressed/5;
         wpm=words/min;
@@ -86,12 +96,21 @@ function resetTimer(){
 }
 
 function resetText(){
-    //reset text
+    //fill text in window
     paraTextEl.innerHTML="";
     paraText.split("").forEach(word=>{
         paraTextEl.innerHTML+=`<span>${word}</span>`
     })
 }
+// clear all the active and correct and incorrect states in para
+function clearTextStates(){
+    const spanEl=paraTextEl.querySelectorAll('span');
+    spanEl.forEach(elem=>{
+        elem.classList.remove('active','correct','incorrect');
+    })
+
+}
+
 const resetApp=function(){
     test=true;
     setPara();
@@ -108,21 +127,22 @@ const resetApp=function(){
     resetBtnEl.disabled=true;
     resetBtnEl.classList.add('blur');
     inputEl.focus();
+
     resetTimer();
-    resetText();
+    clearTextStates();
 
 };
-resetText();
+
+
 clearInterval(timerId);
 
 resetBtnEl.addEventListener('click',resetApp);
 
 
 
-inputEl.value='';
-//disable click on input field
 
-// on typing 
+
+// on change in input field value 
 inputEl.addEventListener('input',(e)=>{
     totalKeysPressed++;
     let inputValue=inputEl.value;
@@ -160,4 +180,3 @@ inputEl.addEventListener('input',(e)=>{
     ind++;
 });
 
-// Total Number of Words = Total Keys Pressed / 5
